@@ -1,6 +1,6 @@
 
 module.exports = (sequelize,DataTypes)=>{
-    return  user =  sequelize.define('newUsers',{
+    return  user =  sequelize.define('users',{
         name:{
             type:DataTypes.STRING,
             allowNull:false,
@@ -20,6 +20,8 @@ module.exports = (sequelize,DataTypes)=>{
             allowNull:false
         }
 
+    },{
+        timestamps:false
     })
 
 }
