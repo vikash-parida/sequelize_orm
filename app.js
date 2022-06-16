@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT ||8000; 
 
 
- models.sequelize.authenticate().then(()=>{
+ models.sequelize.sync().then(()=>{
     console.log(' Database is synced successfully')
  }).catch(err=>{
     console.log(err)
