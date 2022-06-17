@@ -10,6 +10,7 @@ const user = require('../controller/userController')
 route.get('/',user.readUser);
 route.post('/',user.AddUser);
 route.put('/:id',user.updataUser);
+route.get('/:id',user.readUserById);
 
 
 module.exports = route;
