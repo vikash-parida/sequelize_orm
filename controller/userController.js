@@ -82,7 +82,7 @@ exports.readUserById = async (req, res) => {
     }
 }
 
-exports.deleteUserById = (req, res) => {
+exports.deleteUserById = async (req, res) => {
 
     try {
         const {id} = req.params.id
@@ -95,3 +95,10 @@ exports.deleteUserById = (req, res) => {
         res.status(400).send({message:error})
     }
 }
+
+exports.searchByQuery = async (req, res) => {
+const {name,email,password,contact,gender} = req.body
+const data = await models.users.create({name,email,password,contact,gender},{})
+res.send({})
+}
+
