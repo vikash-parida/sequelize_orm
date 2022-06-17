@@ -11,6 +11,7 @@ route.get('/',user.readUser);
 route.post('/',user.AddUser);
 route.put('/:id',user.updataUser);
 route.get('/:id',user.readUserById);
+route.delete('/:id',user.deleteUserById);
 
 
 module.exports = route;

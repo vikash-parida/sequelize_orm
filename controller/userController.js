@@ -73,9 +73,25 @@ exports.readUserById = async (req, res) => {
     try {
         const data = await models.users.findOne({attributes:['name','email','password','contact','gender'],
         where:{id}})
-         res.send({data});
+        if(!data){
+            res.status(400).send({message:'user not found'})
+        }
+     res.status(200).send({message:data});
     } catch (error) {
         console.log(error);
     }
 }
 
+exports.deleteUserById = (req, res) => {
+
+    try {
+        const {id} = req.params.id
+        const data = await models.users.destroy({where:{id}})
+        if(!data){
+        res.status(400).send({message:'user not found'})
+        }
+    res.status(200).send({message:' deleted successfully'})
+    } catch(error){
+        res.status(400).send({message:error})
+    }
+}
