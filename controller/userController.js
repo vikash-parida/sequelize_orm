@@ -99,6 +99,8 @@ exports.deleteUserById = async (req, res) => {
 exports.searchByQuery = async (req, res) => {
 const {name,email,password,contact,gender} = req.body
 const data = await models.users.create({name,email,password,contact,gender},{})
-res.send({})
+  res.send({data})
+   console.log(data);
+
 }
 
