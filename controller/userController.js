@@ -114,11 +114,22 @@ exports.deleteUserById = async (req, res) => {
 //   res.send(data)
 //    console.log(data);
 //}
-exports.searchByQuery = async (req, res) => {
-  const id = req.params.id
-const data = await models.users.findAll({where:{id:{[Op.gt]:id}}});
-res.send(data)
-}
+// exports.searchByQuery = async (req, res) => {
+//   const name = req.query.name
+// const data = await models.users.findAll({where:{name:{[Op.like]:name}}});
+// res.send(data)
+// }
+// exports.searchByQuery = async (req, res) => {
+//     const gm = req.query.name
+//   const data = await models.users.findAll({where:{name:{[Op.like]:"%"+gm+"%"}}});
+//   res.send(data)
+//   }
+  exports.searchByQuery = async (req, res) => {
+    const gm = req.query.name
+  const data = await models.users.count({});
+  res.send({data})
+  }
+  
 
 
 
