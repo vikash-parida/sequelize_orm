@@ -115,13 +115,13 @@ exports.deleteUserById = async (req, res) => {
 //    console.log(data);
 
 // }
-// exports.searchByQuery = async (req, res) => {
-//   const id = req.params.id
-// const data = await models.users.findAll({where:{id:{[Op.eq]:id}}});
-// res.send(data)
-//  console.log(data);
+exports.searchByQuery = async (req, res) => {
+  const id = req.params.id
+const data = await models.users.findAll({where:{id:{[Op.eq]:id}}});
+res.send(data)
+ console.log(data);
 
-// }
+}
 
 
 

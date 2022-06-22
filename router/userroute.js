@@ -7,7 +7,7 @@ const user = require('../controller/userController')
 
 
 // user controller file
-route.post('/query',user.searchByQuery);
+route.get('/query/:id',user.searchByQuery);
 route.get('/',user.readUser);
 route.post('/',user.AddUser);
 route.put('/:id',user.updataUser);
