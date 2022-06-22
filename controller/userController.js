@@ -1,5 +1,6 @@
 const models = require('../models')
-
+const sequelize = models.Sequelize;
+const Op = sequelize.Op;
 
 exports.readUser = async (req, res) => {
     try {
@@ -96,11 +97,34 @@ exports.deleteUserById = async (req, res) => {
     }
 }
 
-exports.searchByQuery = async (req, res) => {
-const {name,email,password,contact,gender} = req.body
-const data = await models.users.create({name,email,password,contact,gender},{})
-  res.send({data})
-   console.log(data);
+// exports.searchByQuery = async (req, res) => {
+//     const id = req.params.id
+// //onst {name,email,password,contact,gender} = req.body
+// const data = await models.users.findByPk(id)
+//   res.send({data})
+//    console.log(data);
 
-}
+// }
+
+// exports.searchByQuery = async (req, res) => {
+//     const id = req.params.id
+// const data = await models.users.findAll({attributes:
+//   {exclude: ['name', 'email']}})
+//   // {include:[[sequelize.fn('COUNT',sequelize.col('email')),'EmailID']]}})
+//   res.send(data)
+//    console.log(data);
+
+// }
+// exports.searchByQuery = async (req, res) => {
+//   const id = req.params.id
+// const data = await models.users.findAll({where:{id:{[Op.eq]:id}}});
+// res.send(data)
+//  console.log(data);
+
+// }
+
+
+
+
+
 
