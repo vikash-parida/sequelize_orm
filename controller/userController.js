@@ -137,7 +137,7 @@ exports.deleteUserById = async (req, res) => {
 
   exports.searchByQuery = async (req, res) => {
     const name = req.query.name
-  const data = await models.users.findOrCreate({
+  const [data,created] = await models.users.findOrCreate({
     where:{name:name},
     defaults:{name:"AnamCharanParida",
     email:"anam@gmail.com",
@@ -146,7 +146,7 @@ exports.deleteUserById = async (req, res) => {
     gender:"M"
 }
   });
-  res.send({data})
+  res.send({data:data,create:created})
   }
   
 
