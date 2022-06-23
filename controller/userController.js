@@ -134,6 +134,20 @@ exports.deleteUserById = async (req, res) => {
 //   const data = await models.users.findAndCountAll({where:{name:{[Op.like]:"%"+like+"%" }}});
 //   res.send({data})
 //   }
+
+  exports.searchByQuery = async (req, res) => {
+    const name = req.query.name
+  const data = await models.users.findOrCreate({
+    where:{name:name},
+    defaults:{name:"AnamCharanParida",
+    email:"anam@gmail.com",
+    password:"123456789A",
+    contact:"9820587584",
+    gender:"M"
+}
+  });
+  res.send({data})
+  }
   
 
 
